@@ -19,6 +19,10 @@ export interface INepaliDatePicker {
     value: string
     className: HTMLAttributes<HTMLDivElement>["className"]
     inputClassName: HTMLAttributes<HTMLInputElement>["className"]
+    placeholder: HTMLAttributes<HTMLInputElement>["placeholder"]
+    showResetButton: boolean
+    resetButtonElement: any
+    disabled: boolean
     onChange: (date: string) => void
     onSelect?: (value: string) => void
     options: NepaliDatePickerOptions
@@ -35,6 +39,10 @@ export interface NepaliDatePickerProps {
         calenderLocale?: NepaliDatePickerOptions["calenderLocale"]
         valueLocale?: NepaliDatePickerOptions["valueLocale"]
     }
+    placeholder?: INepaliDatePicker["placeholder"]
+    showResetButton?: INepaliDatePicker["showResetButton"]
+    resetButtonElement?: INepaliDatePicker["resetButtonElement"]
+    disabled?: INepaliDatePicker["disabled"]
 }
 
 export interface NepaliDatepickerEvents {

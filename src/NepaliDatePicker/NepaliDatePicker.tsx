@@ -7,7 +7,18 @@ import { ENGLISH, INepaliDatePicker, localeType, NepaliDatepickerEvents } from "
 import { childOf, executionDelegation, stitchDate } from "./Utils/common"
 
 const NepaliDatePicker: FunctionComponent<INepaliDatePicker> = (props) => {
-    const { className, inputClassName, value, onChange, onSelect, options } = props
+    const {
+        className,
+        inputClassName,
+        value,
+        onChange,
+        onSelect,
+        options,
+        placeholder,
+        showResetButton,
+        resetButtonElement,
+        disabled,
+    } = props
 
     const nepaliDatePickerWrapper = useRef<HTMLDivElement>(null)
     const nepaliDatePickerInput = useRef<HTMLInputElement>(null)
@@ -28,7 +39,7 @@ const NepaliDatePicker: FunctionComponent<INepaliDatePicker> = (props) => {
     }, [options.calenderLocale])
 
     useEffect(() => {
-        setDate(toEnglish(value || ADToBS(new Date())))
+        setDate(toEnglish(value))
     }, [value])
 
     const handleClickOutside = useCallback((event: any) => {
@@ -104,16 +115,32 @@ const NepaliDatePicker: FunctionComponent<INepaliDatePicker> = (props) => {
     }
 
     return (
-        <div ref={nepaliDatePickerWrapper} className={`nepali-date-picker ${className}`}>
-            <input
-                type='text'
-                ref={nepaliDatePickerInput}
-                className={inputClassName}
-                readOnly={true}
-                value={numberTrans(date)}
-                onClick={() => setShowCalendar((visible) => !visible)}
-            />
-            {showCalendar && date && <Calender value={date} events={datepickerEvents} />}
+        <div ref={nepaliDatePickerWrapper} className={`${className}`}>
+            <div className='input-group'>
+                <input
+                    type='text'
+                    ref={nepaliDatePickerInput}
+                    className={inputClassName}
+                    value={numberTrans(date)}
+                    onClick={() => setShowCalendar((visible) => !visible)}
+                    placeholder={placeholder}
+                    disabled={disabled}
+                    readOnly
+                />
+                {showResetButton && (
+                    <div className='input-group-append'>
+                        <button
+                            className='btn btn-outline-secondary'
+                            type='button'
+                            id='resetDateButton'
+                            onClick={() => onChange("")}
+                        >
+                            {resetButtonElement}
+                        </button>
+                    </div>
+                )}
+            </div>
+            {showCalendar && <Calender value={date || ADToBS(new Date())} events={datepickerEvents} />}
         </div>
     )
 }

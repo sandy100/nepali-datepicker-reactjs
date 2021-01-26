@@ -26,14 +26,12 @@ const YearPicker: FunctionComponent<YearPickerProps> = ({ date, onSelect }) => {
 
     const years: OptionType[] = useMemo(
         (): OptionType[] =>
-            range(2000, 2080)
-                .reverse()
-                .map(
-                    (year: number): OptionType => ({
-                        label: numberTrans(year),
-                        value: year,
-                    }),
-                ),
+            range(2000, 2099).map(
+                (year: number): OptionType => ({
+                    label: numberTrans(year),
+                    value: year,
+                }),
+            ),
         [],
     )
 

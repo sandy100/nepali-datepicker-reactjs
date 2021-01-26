@@ -9,10 +9,10 @@ interface DropDownProps {
 
 const DropDown: FunctionComponent<DropDownProps> = ({ options, value, onSelect }) => {
     useLayoutEffect(() => {
-        // const elem = document.querySelector(".active")
-        // if (elem) {
-        //     elem.scrollIntoView()
-        // }
+        const elem = document.querySelector(".active")
+        if (elem) {
+            elem.scrollIntoView()
+        }
     })
     return (
         <div className='drop-down'>

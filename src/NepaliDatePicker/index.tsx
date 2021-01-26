@@ -23,12 +23,15 @@ const NepaliDatePickerWrapper: FunctionComponent<NepaliDatePickerProps> = (props
 }
 
 NepaliDatePickerWrapper.defaultProps = {
-    className: "",
-    inputClassName: "",
-    value: "",
+    className: "nepali-date-picker",
+    inputClassName: "datepicker-input",
+    value: undefined,
     onChange: () => null,
     onSelect: () => null,
     options: {},
+    placeholder: "कृपया मिति चयन गर्नुहोस्।",
+    showResetButton: false,
+    resetButtonElement: "X",
 }
 
 export default NepaliDatePickerWrapper

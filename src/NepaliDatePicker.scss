@@ -5,10 +5,8 @@ $text-disabled: #d8d8d8;
 
 .nepali-date-picker {
     position: relative;
-
     .calender {
         background: $secondary none repeat scroll 0 0;
-        // border: 1px solid darken($secondary, 20%);
         border-radius: 6px;
         box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.1);
         box-sizing: border-box;
@@ -54,7 +52,8 @@ $text-disabled: #d8d8d8;
                     line-height: 24px;
                     width: 70px;
 
-                    .current-month, .current-year {
+                    .current-month,
+                    .current-year {
                         display: block;
                         padding: 4px;
                     }
