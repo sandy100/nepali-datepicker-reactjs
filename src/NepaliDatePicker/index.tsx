@@ -31,6 +31,7 @@ NepaliDatePickerWrapper.defaultProps = {
     options: {},
     placeholder: "कृपया मिति चयन गर्नुहोस्।",
     showResetButton: false,
+    disabled: false,
     resetButtonElement: "X",
 }
 
