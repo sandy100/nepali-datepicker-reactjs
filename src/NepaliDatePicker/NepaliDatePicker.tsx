@@ -116,7 +116,7 @@ const NepaliDatePicker: FunctionComponent<INepaliDatePicker> = (props) => {
 
     return (
         <div ref={nepaliDatePickerWrapper} className={`${className}`}>
-            <div className='input-group'>
+            <div className='input-group' id='dateInputGroup'>
                 <input
                     type='text'
                     ref={nepaliDatePickerInput}
